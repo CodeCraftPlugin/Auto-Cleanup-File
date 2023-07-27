@@ -2,12 +2,14 @@ import os
 import shutil
 import variable as var
 import tray_icon as ti
+import time as time
 def move_the_file_to_right_place(main_directory, move_folder, filename):
     if not os.path.exists(move_folder):
         os.makedirs(move_folder)
     shutil.move(os.path.join(main_directory, filename), os.path.join(move_folder, filename))
 def check_file_extension(file_ext, dir, mov_dir, filename):
     if filename.endswith(file_ext):
+        time.sleep(1)
         move_the_file_to_right_place(main_directory=dir, move_folder=mov_dir, filename=filename)
 def main_stuff():
     print('Program started.')
