@@ -3,12 +3,12 @@ import sys
 
 # Dependencies are automatically detected, but it might need
 # fine tuning.
-build_options = {'packages': [], 'excludes': [],'build_exe': 'build_windows','include_files':['icon.ico']}
+build_options = {'packages': ['os','getpass'], 'excludes': [],'build_exe': 'build_windows','include_files':['icon.ico']}
 
-base = 'Win32GUI' if sys.platform=='win32' else None
+base = "Console"
 
 executables = [
-    Executable('auto_download_cleaner.py', base=base, target_name = 'Auto-Download-Cleanup',icon='icon.ico')
+    Executable('auto_downloader_clearner.py', base=base, target_name = 'Auto-Download-Cleanup',icon='icon.ico')
 ]
 
 setup(name='Auto-Download-Cleanup',
