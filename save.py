@@ -50,16 +50,7 @@ def create_default_directories():
 def save_variables_to_json(vars_dict):
     with open("config.json", "w") as json_file:
         json.dump(vars_dict, json_file, indent=4)
-def load_variables_from_json():
-    dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, 'config.json')
-    try:
-        with open(filename, "r") as json_file:
-            loaded_vars = json.load(json_file)
-    except FileNotFoundError:
-        # If the config file doesn't exist, return an empty dictionary
-        return {}
-    return loaded_vars
+
 def main():
     username = getpass.getuser()
     # Create default directories for different file types
