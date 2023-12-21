@@ -1,8 +1,6 @@
 import os
 import shutil
-import variable as var
-import tray_icon as ti
-import save as sv
+from library import variable as var, save as sv, tray as tray
 import time as time
 import json
 
@@ -26,7 +24,8 @@ def move_file(main_directory, move_folder, filename):
     if not os.path.exists(move_folder):
         os.makedirs(move_folder)
 
-    shutil.move(os.path.join(main_directory, filename), os.path.join(move_folder, filename))
+    # noinspection PyTypeChecker
+    shutil.move(os.path.join(main_directory, filename),os.path.join(move_folder, filename))
 
 
 def check_file_extension(file_ext, mov_dir, filename):
@@ -42,7 +41,6 @@ def main_stuff():
     print(sv.get_default_download_folder())
     print('Program started.')
     while var.run:
-        print("running")
         try:
             folder_content = os.listdir(sv.get_default_download_folder())
         except PermissionError:
@@ -60,5 +58,5 @@ def main_stuff():
 
 
 if __name__ == "__main__":
-    ti.start()
+    tray.start('icon.ico')
     main_stuff()

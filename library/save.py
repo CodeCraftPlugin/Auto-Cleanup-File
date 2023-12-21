@@ -1,7 +1,8 @@
 import os
 import json
 import getpass
-import variable
+
+from library import variable
 
 
 def get_default_download_folder():
@@ -52,10 +53,10 @@ def create_default_directories():
 
 def save_variables_to_json(vars_dict):
     appdata = os.getenv("APPDATA")
-    appdir_config = os.path.join(appdata, "Auto-Download-Cleaner")
-    if not os.path.exists(appdir_config):
-        os.makedirs(appdir_config)
-    filename = os.path.join(appdir_config, "config.json")
+    app_config = os.path.join(appdata, "Auto-Download-Sorter")
+    if not os.path.exists(app_config):
+        os.makedirs(app_config)
+    filename = os.path.join(app_config, "config.json")
     with open(filename, "w") as json_file:
         json.dump(vars_dict, json_file, indent=4)
 
@@ -66,5 +67,5 @@ def main():
     default_directories = create_default_directories()
 
     # Save the variables to a JSON file
-    if (os.path.exists("config.json")) == False:
+    if not (os.path.exists("config.json")):
         save_variables_to_json(default_directories)

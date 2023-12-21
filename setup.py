@@ -3,8 +3,8 @@ import sys
 
 # Dependencies are automatically detected, but it might need
 # fine tuning.
-build_options = {'packages': ['os', 'getpass'], 'excludes': [], 'build_exe': 'build_windows',
-                 'include_files': ['icon.ico']}
+build_options = {'packages': ['os', 'getpass', 'library'], 'excludes': [], 'build_exe': 'build_windows',
+                 'include_files': ['icon.ico', 'README.md', 'Licence.md', 'icon.jpg']}
 
 base = 'Win32GUI' if sys.platform == 'win32' else None
 
