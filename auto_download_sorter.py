@@ -6,13 +6,15 @@ import json
 
 
 def load_variables_from_json():
-    dirname = os.path.join(os.getenv("APPDATA"), "Auto-Download-Cleaner")
+    dirname = os.path.join(os.getenv("APPDATA"), "Auto-Download-Sorter")
     filename = os.path.join(dirname, 'config.json')
     try:
         with open(filename, "r") as json_file:
             loaded_vars = json.load(json_file)
     except FileNotFoundError:
         # If the config file doesn't exist, return an empty dictionary
+        print("Config file not found. ")
+        print("Creating config file...")
         return {}
     return loaded_vars
 

@@ -57,8 +57,9 @@ def save_variables_to_json(vars_dict):
     if not os.path.exists(app_config):
         os.makedirs(app_config)
     filename = os.path.join(app_config, "config.json")
-    with open(filename, "w") as json_file:
-        json.dump(vars_dict, json_file, indent=4)
+    if not os.path.exists(filename):
+        with open(filename, "w") as json_file:
+            json.dump(vars_dict, json_file, indent=4)
 
 
 def main():
