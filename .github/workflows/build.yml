@@ -36,10 +36,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "${{steps.build.outputs.version}}"
-          release_name: Release v1.0.0
+          tag_name: v1.2.0
+          release_name: Release v1.2.0
           body: |
-            This is the first release of the Auto Download Sorter.
+            updated the config handler
           draft: false
           prerelease: false
       - name: Upload Release Asset
