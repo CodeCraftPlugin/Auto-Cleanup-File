@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build project
+        run: python setup.py build
+
+      - name: Build MSI installer
+        run: |
+          # Build MSI installer command goes here
+
+      - name: Build portable zip
+        run: |
+          # Build portable zip command goes here
+
+      - name: Upload MSI installer
+        uses: actions/upload-artifact@v2
+        with:
+          name: msi-installer
+          path: path/to/msi/installer
+
+      - name: Upload portable zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: portable-zip
+          path: path/to/portable/zip
