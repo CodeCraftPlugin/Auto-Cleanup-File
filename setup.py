@@ -7,7 +7,7 @@ version = 'v1.2.0'
 # os.system(f"echo '::set-output name=version::{version}'")
 # Dependencies are automatically detected, but it might need
 # fine tuning.
-build_options = {'packages': ['os', 'getpass', 'library','pystray'], 'excludes': [], 'build_exe': 'build_windows',
+build_options = {'packages': ['os', 'getpass', 'library','pystray','queue'], 'excludes': [], 'build_exe': 'build_windows',
                  'include_files': ['icon.ico', 'README.md', 'LICENSE.md', 'icon.jpg']}
 
 base = 'Win32GUI' if sys.platform == 'win32' else None
